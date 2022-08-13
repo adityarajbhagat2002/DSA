@@ -1,7 +1,7 @@
 
 
 public class SL{
-    Node head;
+    public Node head;
 
     public void Insert(int data) {
         Node node =new Node();
