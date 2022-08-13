@@ -20,10 +20,11 @@ public class DLL {
     public void display(){
         Node node= head;
         while(node != null){
-            System.out.println(node.value + " ->");
+            System.out.print(node.value + " ->");
             node= node.next;
         }
         
+        System.out.println();
     }
 
     
