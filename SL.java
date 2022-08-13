@@ -43,10 +43,19 @@ public class SL{
         node.next=null;
         node.next=head;
         head=node;
+        }
+    public void insertAt(int index,int data){
+        Node node = new Node();
+        node.data=data;
+        node.next=null;
+        Node temp =head;
+        for(int i=0;i<index-1;i++){
+            temp=temp.next;
+        }
+        node.next=temp.next;
+        temp.next=node;
         
 
 
-
-    }
-    
+    } 
 }
