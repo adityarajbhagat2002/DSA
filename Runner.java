@@ -11,9 +11,12 @@ public class Runner {
         list.Insert(76);
         list.Insert(6);
         list.Insert(96);
+        list.insertAtStart(45);
 
         list.show();
 
     }
 
 }
+
+
