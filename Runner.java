@@ -13,6 +13,9 @@ public class Runner {
         list.Insert(96);
         list.insertAtStart(45);
         list.insertAt(3, 46);
+        list.insertAt(0,50);
+        list.delete(3);
+        
 
         list.show();
 

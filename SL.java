@@ -48,14 +48,38 @@ public class SL{
         Node node = new Node();
         node.data=data;
         node.next=null;
-        Node temp =head;
-        for(int i=0;i<index-1;i++){
-            temp=temp.next;
+        if(index==0){
+            insertAtStart(data);
+        }else{
+            
+            Node temp =head;
+            for(int i=0;i<index-1;i++){
+                temp=temp.next;
+            }
+            node.next=temp.next;
+            temp.next=node;
         }
-        node.next=temp.next;
-        temp.next=node;
-        
+
 
 
     } 
+    public void delete(int index){
+        if(index==0){
+            head=head.next;
+
+        }else{
+            Node temp =head;
+            Node del =null;
+            for(int i=0;i<index-1;i++){
+                temp=temp.next;
+                
+            }
+            del=temp.next;
+            temp.next=del.next;
+            del=null;
+           
+        }
+       
+
+    }
 }
