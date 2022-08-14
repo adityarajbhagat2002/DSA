@@ -20,7 +20,7 @@ public class Solution {
             b= b == null ? headA : b.next;
             
         }
-        return a;
+        return b;
         
         
         
