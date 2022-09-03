@@ -26,7 +26,7 @@ public:
                 node =st.top();
                 st.pop();
                 inorder.push_back(node->val);
-                node=node->right;
+                node=node->right;  
                 
                 
             }
