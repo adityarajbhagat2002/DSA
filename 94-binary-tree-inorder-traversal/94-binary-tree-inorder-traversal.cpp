@@ -12,18 +12,18 @@
 class Solution {
 public:
     
-     vector<int> v;
+     vector<int> ans;
     
     vector<int> inorderTraversal(TreeNode* root) {
         find(root);
-        return v;
+        return ans;
     }
     
     void find(TreeNode* root){
         if(!root)return;
         
         inorderTraversal(root->left);
-        v.push_back(root->val);
+        ans.push_back(root->val);
         inorderTraversal(root->right);
     }
 };
