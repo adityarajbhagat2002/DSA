@@ -11,23 +11,25 @@
  */
 class Solution {
 public:
-    vector<int> ans;
-    
     vector<int> postorderTraversal(TreeNode* root) {
-        find(root);
-        return ans;
-        
-        
-        
-    }
-    
-    void find(TreeNode* root){
-        if(!root)return;
-        
-        postorderTraversal(root->left);
-        postorderTraversal(root->right);
-        ans.push_back(root->val);      
-        
-    
+      vector<int> postorder;
+        stack<TreeNode*> st;
+        TreeNode* last = NULL;
+        while (root || !st.empty()) {
+            if (root) {
+                st.push(root);
+                root = root -> left;
+            } else {
+                TreeNode* node = st.top();
+                if (node -> right && last != node -> right) {
+                    root = node -> right;
+                } else {
+                    postorder.push_back(node -> val);
+                    last = node;
+                    st.pop();
+                }
+            }
+        }
+        return postorder;
     }
 };
