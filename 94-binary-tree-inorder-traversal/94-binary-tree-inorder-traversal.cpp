@@ -19,9 +19,9 @@ public:
             if(node != NULL){
                 st.push(node);
                 node=node->left;
-                
+                 
             }
-            else{
+            else{    
                 if(st.empty() == true ) break;
                 node =st.top();
                 st.pop();
