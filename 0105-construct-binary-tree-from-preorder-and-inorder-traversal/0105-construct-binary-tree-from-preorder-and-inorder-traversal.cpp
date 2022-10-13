@@ -1,17 +1,34 @@
 class Solution {
 public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        int inPos = 0;
-        int prePos = 0;
-        return build(preorder, inorder, INT_MIN, inPos, prePos);
+    TreeNode* constructTree(int i,int j,int &ind,vector<int> &preorder,vector<int> &inorder,unordered_map<int,int> &mp)
+    {
+        if(i>j)
+        {
+            return NULL;
+        }
+        int rootVal=preorder[ind];
+        ind+=1;
+
+        TreeNode *root=new TreeNode(rootVal);
+        
+        int in=mp[rootVal];
+        root->left=constructTree(i,in-1,ind,preorder,inorder,mp);
+        root->right=constructTree(in+1,j,ind,preorder,inorder,mp);
+        return root;
     }
-    TreeNode* build(vector<int>& preorder, vector<int>& inorder, int stop, int& inPos, int& prePos){
-        if(prePos >= preorder.size()) return NULL;
-        if(inorder[inPos] == stop) {inPos++; return NULL;}
-        TreeNode* node = new TreeNode(preorder[prePos]);
-        prePos++;
-        node->left = build(preorder, inorder, node->val, inPos, prePos);
-        node->right = build(preorder, inorder, stop , inPos, prePos);
-        return node;
+
+        
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+     
+        unordered_map<int,int> mp;
+        
+        for(int i=0;i<inorder.size();i++)
+        {
+            mp[inorder[i]]=i;
+        }
+        int ind=0;
+        return constructTree(0,preorder.size()-1,ind,preorder,inorder,mp);
+        
+        
     }
 };
