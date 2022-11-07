@@ -15,12 +15,15 @@ class Solution {
             q.pop();
             
             for(auto it : adj[node]){
+                //if the adjacent nodes are yet not colored 
+                //you will color them opposite of the node
                 if(color[it]==-1){
                     
                     color[it] = !color[node];
                     q.push(it);
                     
                 }
+                //if same color then we will return false
                 else if(color[it]== color[node]){
                     return false;
                     
