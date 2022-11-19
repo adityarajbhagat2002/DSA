@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool isPalindrome(int x) {
-        if(x<0) return false;
+       if(x<0) return false;
         int n = x;
         unsigned int sum=0;
         while(n!=0){
@@ -10,7 +10,5 @@ public:
         }
         
         return sum == x;
-        
-        
     }
 };
