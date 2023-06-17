@@ -11,11 +11,12 @@ public:
     // n is size of array
     int findZeroes(int arr[], int n, int m) {
         // code here
-        int i=0,j=0;
-        for(i=0;i<n;i++)
-        {
-            if(arr[i]==0)  m--;
-            if(m<0 and arr[j++]==0)  m++;
+        int i,j=0;
+        for( i = 0 ; i< n ; i++){
+            if(arr[i]== 0 ) m--;
+            
+            if(m<0 && arr[j++]==0) m++;
+            
         }
         return i-j;
     }  
