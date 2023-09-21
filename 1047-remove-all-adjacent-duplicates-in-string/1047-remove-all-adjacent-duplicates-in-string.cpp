@@ -1,20 +1,12 @@
 class Solution {
 public:
-	string removeDuplicates(string s) {
-
-		string ans;
-		ans.push_back(s[0]);
-
-		for(int i=1 ; i<s.length() ; i++){
-
-			if(!ans.empty() && s[i] == ans.back()){
-				ans.pop_back();
-			}
-			else{
-				ans.push_back(s[i]);
-			}
-		}
-
-		return ans;
-	}
+   string removeDuplicates(string s) {
+        int i = 0, n = s.length();
+        for (int j = 0; j < n; ++j, ++i) {
+            s[i] = s[j];
+            if (i > 0 && s[i - 1] == s[i]) // count = 2
+                i -= 2;
+        }
+        return s.substr(0, i);
+    }
 };
