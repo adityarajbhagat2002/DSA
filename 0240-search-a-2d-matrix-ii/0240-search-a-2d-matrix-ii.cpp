@@ -12,9 +12,10 @@ public:
             
             if(element  == target)return 1;
             
-            if(element < target)rowIndex++;
+            if(element > target)colIndex--;
             
-            else colIndex--;
+            
+            else rowIndex++;
             
             
         }   
