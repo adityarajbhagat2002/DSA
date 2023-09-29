@@ -9,9 +9,10 @@ public:
         int end= row*col-1;
         
         
-        int mid = start+(end-start)/2;
+        
         
         while(start<=end){
+            int mid = start+(end-start)/2;
             
             int element = matrix[mid/col][mid%col];
             
@@ -23,7 +24,7 @@ public:
                 end=mid-1;
             }
                 
-            mid =start + (end-start)/2;
+            
             
             
             
