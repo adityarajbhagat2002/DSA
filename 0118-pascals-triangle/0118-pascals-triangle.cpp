@@ -1,26 +1,18 @@
 class Solution {
 public:
     vector<vector<int>> generate(int n) {
-        if(n==1)return {{1}};
+        vector<vector<int>> ans(n);
         
-        if(n==2) return {{1},{1,1}};
-        
-        vector<vector<int>> ans;
-        ans={{1},{1,1}};
-        
-        for(int i=2; i<n; i++){
-            vector<int> temp(ans.back().size()+1);
-            temp[0]=1;
-            temp[temp.size()-1]=1;
+        for(int i =0 ; i<n ; i++){
+            ans[i].resize(i+1);
+            ans[i][0]=ans[i][i]=1;
             
-            for(int j=1; j<temp.size()-1; j++){
-                temp[j]= ans.back()[j-1]+ans.back()[j];
+            for(int j=1; j<i; j++){
+                ans[i][j] = ans[i-1][j-1] + ans[i-1][j];
+                
             }
-            
-            ans.push_back(temp);
-            
         }
-        return ans;
         
+        return ans;
     }
 };
