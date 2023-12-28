@@ -1,21 +1,17 @@
 class Solution {
 public:
     vector<int> getRow(int rowIndex) {
-        vector<int> ans(rowIndex+1);
-        
-        ans[0]=1;
-        
-        for(int i=1; i<rowIndex+1; i++)
-        {
-            for(int j=i; j>0; j--)
-            {
-               ans[j]= ans[j] + ans[j-1];
-                
-            }
+        if(rowIndex==0) return {1}; // Base Case
+
+        vector<int> currentRow = {1}; // current row with 1 value in it
+        vector<int> previousRow = getRow(rowIndex-1); // get the previous row
+
+        // Now fill the current row based on previous row
+        for(int i=1;i<rowIndex;i++){
+            currentRow.push_back(previousRow[i-1]+previousRow[i]);
         }
-        
-        return ans;
-        
-        
+
+        currentRow.push_back(1); // fill the last element of current row
+        return currentRow;
     }
 };
