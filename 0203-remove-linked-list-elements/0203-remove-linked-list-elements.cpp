@@ -24,7 +24,7 @@ public:
             curr=curr->next;
             
         }
-        return head?(head->val==val?NULL:head):NULL;
+        return head;
         
     }
 };
