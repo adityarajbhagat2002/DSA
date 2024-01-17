@@ -9,13 +9,13 @@ public:
         
         unordered_set<int> s;
         for(auto it :mp){
-            if(s.find(it.second)!=s.end())return false;
+            
             
             s.insert(it.second);
             
         }
         
-        return true;
+        return s.size()==mp.size();
         
         
         
