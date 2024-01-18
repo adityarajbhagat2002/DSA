@@ -6,12 +6,12 @@ public:
         int b=0;
         int n=s.size();
         
-        while(a<t.size()&&b<s.size()&&n>=0){
+        while(b<t.size()&&a<s.size()&&n>=0){
             
-            if(s[b]==t[a]){
-                b++,n--;
-            }           
-            a++;
+            if(s[a]==t[b]){
+            a++,n--;
+            }
+            b++;
         }
         return n==0;
         
